@@ -40,8 +40,9 @@ const [featureId, setFeatureId] = useState()
     if (item.id === featureId) {
       return item.name
     }
+    return programmer;
   })
-  return programmer
+
   };
 
   const style = {
