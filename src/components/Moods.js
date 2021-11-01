@@ -38,25 +38,25 @@ export default function Moods() {
   /* STEP 1 */
 const [mood, setMood] = useState(initialMood);
   const makeHappy = () => {
-    /* STEP 4 */
+    setMood(happyMood);
   };
   const makeSad = () => {
-    /* STEP 5 */
+    setMood(sadMood);
   };
   const reset = () => {
-    /* STEP 6 */
+    setMood(initialMood);
   };
 
-  const style = {
+  let style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
     color: 'crimson', /* STEP 2 */
   };
-
+   {mood === happyMood ? style={color: 'royalBlue'} : style={color: 'crimson'}}
   return (
     <div className='widget-moods container'>
       <h2>Moods</h2>
-      <div id='mood' style={style}>Not sure how I feel</div> {/* STEP 3 */}
+      {mood === sadMood ? <div id='mood' style={style}>Rather sad</div> : mood === happyMood ? <div id='mood' style={style}>Quite happy!</div> : <div id='mood' style={style}>Not sure how I feel</div>}
       <div>
         <button id='makeHappy' onClick={makeHappy}>Make Happy</button>
         <button id='makeSad' onClick={makeSad}>Make Sad</button>
